@@ -1,8 +1,9 @@
-Heroku Buildpack for Node.js
+Heroku Buildpack for Node.js 
 ============================
 
-This is the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. If you fork this repository, please **update this README** to explain what your fork does and why it's special.
 
+
+This is a fork of the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. It adds simple commands to run grunt at the end of the build process.
 
 How it Works
 ------------
