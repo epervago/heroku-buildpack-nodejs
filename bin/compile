@@ -111,3 +111,13 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
     --header "content-type: application/json" \
     https://nomnom.heroku.com/?request_id=$REQUEST_ID
 ) &
+
+if [ -f $build_dir/grunt.js ] || [ -f $build_dir/Gruntfile.js ] || [ -f $build_dir/Gruntfile.coffee ]; then
+  # make sure that grunt and grunt-cli are installed locally
+  run_npm "install grunt-cli"
+  run_npm "install grunt"
+  echo "-----> Found Gruntfile, running grunt heroku:$NODE_ENV task"
+  $build_dir/node_modules/.bin/grunt heroku:$NODE_ENV
+else
+  echo "-----> No Gruntfile (grunt.js, Gruntfile.js, Gruntfile.coffee) found"
+fi
